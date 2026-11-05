@@ -1,0 +1,243 @@
+/* ==========================================================================
+   AmparaPet — site público
+   Cabeçalho (navbar), home, vitrine de animais, detalhe do animal e Como adotar.
+   Depende de base.css (variáveis, botões, marca, rodapé, modal, paginação).
+   ========================================================================== */
+
+/* ---------- Estrutura da página ---------- */
+/* Rodapé sempre no fim da janela: com pouco conteúdo o <main> cresce e empurra o rodapé para baixo; com muito conteúdo
+   o rodapé vem depois dele. 100dvh (com 100vh de reserva) acompanha a barra de endereço dos navegadores de celular. */
+body.site { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+body.site > main { flex: 1 0 auto; }
+body.site > footer { flex: none; }
+
+/* ---------- Cabeçalho ---------- */
+.cabecalho { background: #fff; position: relative; z-index: 20; }
+.cabecalho__interno { display: flex; align-items: center; gap: 32px; max-width: 1240px; margin-inline: auto; padding: 28px 24px; }
+/* Marca: tamanhos fluidos (clamp) consumidos pelas regras de .cabecalho__logo em base.css. */
+.cabecalho__logo { --marca-icone: clamp(40px, 2vw + 24px, 50px); --marca-texto: clamp(20px, .9vw + 12px, 26px); flex: none; }
+.cabecalho__logo .logo__texto { color: var(--verde-escuro); }
+.cabecalho__nav { display: flex; align-items: center; gap: clamp(16px, 3.4vw, 48px); margin-inline: auto; padding-right: 32px; }
+.cabecalho__nav a { position: relative; padding: 6px 2px; font-weight: 700; font-size: 14px; text-decoration: none; white-space: nowrap; color: var(--verde-escuro); }
+.cabecalho__nav a:hover { color: var(--verde); }
+.cabecalho__nav a.ativo { color: var(--verde); }
+.cabecalho--simples .cabecalho__nav a.ativo::after { content: ""; position: absolute; left: -4px; right: -4px; bottom: -8px; height: 2px; border-radius: 2px; background: var(--verde); }
+.cabecalho__acoes { display: flex; align-items: center; gap: 14px; flex: none; }
+.cabecalho__acoes .btn { white-space: nowrap; }
+.cabecalho__busca { display: grid; place-items: center; width: 70px; height: 42px; border-radius: 999px; background: #f3f3f1; color: #6c7771; }
+.cabecalho__busca:hover { background: var(--verde-claro); color: var(--verde-escuro); }
+.cabecalho__busca .icone { width: 24px; height: 24px; }
+.cabecalho__menu { display: none; margin-left: auto; padding: 8px; border: 0; background: none; color: var(--verde-escuro); }
+.cabecalho__menu .icone { width: 28px; height: 28px; }
+
+/* ---------- Home: faixa de destaque ---------- */
+.hero { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 226px; padding: 0 clamp(20px, 4.6vw, 80px); background: var(--amarelo); overflow: hidden; }
+.hero__texto { flex: none; max-width: 340px; padding: 28px 0; }
+.hero h1 { margin-bottom: 8px; font-size: clamp(28px, 2.4vw, 34px); font-weight: 800; line-height: 1.45; }
+.hero__coracao { display: inline-block; vertical-align: .1em; color: var(--verde); }
+.hero__coracao .icone { width: .85em; height: .85em; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.hero p { margin-bottom: 18px; font-size: 13px; font-weight: 700; line-height: 1.5; }
+.hero__imagem { min-width: 0; width: 63%; max-width: 1135px; height: auto; align-self: flex-end; margin-right: 2%; }
+
+/* ---------- Vitrine ---------- */
+.secao { padding: 36px 0 80px; }
+/* O min-height reserva altura enquanto a página carrega ou mostra erro/vazio, para o tamanho não pular entre esses estados.
+   Não é ele que mantém o rodapé embaixo: isso é feito pelo flex de body.site, lá em cima. */
+.secao--pagina { min-height: 60vh; padding-top: 24px; }
+
+.filtros { display: flex; flex-direction: column; gap: 14px; padding: 18px 28px 22px; border-radius: 24px; background: #f8f8f6; }
+.filtros__linha { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; }
+.filtros__linha--extra { padding-left: 4px; }
+.filtros__busca { display: flex; align-items: center; flex: 1 1 280px; min-width: 0; max-width: 350px; gap: 10px; padding: 0 14px; height: 42px; border: 1.5px solid #8a948f; border-radius: 8px; background: #fff; color: #6c7771; }
+.filtros__busca:focus-within { border-color: var(--verde); box-shadow: 0 0 0 3px rgba(76, 175, 80, .25); }
+.filtros__busca input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 14px; color: var(--verde-escuro); }
+.filtros__busca input::placeholder { color: #8b9791; }
+.filtros__busca .icone { width: 22px; height: 22px; }
+.filtros__grupo { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.filtros__portes { margin-left: auto; gap: 10px; }
+.filtros__rotulo { font-weight: 700; font-size: 15px; margin-right: 4px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 22px; border-radius: 999px; border: 1.5px solid transparent; font-weight: 700; font-size: 14px; white-space: nowrap; transition: background .15s, color .15s, border-color .15s; }
+.chip .icone { width: 20px; height: 20px; }
+.chip--forte { background: var(--verde); border-color: var(--verde); color: #fff; }
+.chip--contorno { background: #fff; border-color: var(--verde-escuro); color: var(--verde-escuro); }
+.chip--contorno:hover { background: var(--verde-claro); }
+.chip--cinza { background: #ececea; color: var(--verde-escuro); height: 34px; padding: 0 24px; }
+.chip--cinza:hover { background: #e0e2de; }
+.filtros__portes .chip { height: 38px; padding: 0 16px; }
+.filtros__limpar { display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; font-weight: 700; font-size: 14px; color: var(--verde-escuro); padding: 6px 4px; }
+.filtros__limpar:hover { color: var(--verde); }
+.filtros__limpar .icone { width: 15px; height: 15px; }
+
+.catalogo__cabecalho { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 40px 0 36px; }
+.catalogo__titulo { margin: 0; font-size: clamp(24px, 2.6vw, 33px); font-weight: 800; }
+.catalogo__ver-todos { display: inline-flex; align-items: center; flex: none; gap: 6px; font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.catalogo__ver-todos:hover { color: var(--verde); }
+.catalogo__total { margin: 0; font-size: 14px; color: var(--texto-suave); }
+.catalogo__grade { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 34px; }
+
+/* Cartão do animal */
+.cartao-animal { display: flex; flex-direction: column; border: 1px solid #ececea; border-radius: 40px 40px 36px 36px; background: #fff; box-shadow: 0 3px 14px rgba(35, 78, 63, .08); overflow: hidden; transition: transform .15s, box-shadow .15s; }
+.cartao-animal:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(35, 78, 63, .16); }
+.cartao-animal__foto { position: relative; display: block; aspect-ratio: 288 / 185; background: var(--verde-claro); overflow: hidden; }
+.cartao-animal__foto img { width: 100%; height: 100%; object-fit: cover; }
+.cartao-animal__sem-foto { display: grid; place-items: center; width: 100%; height: 100%; color: #9bb8a5; }
+.cartao-animal__sem-foto .icone { width: 64px; height: 64px; }
+.selo-status { position: absolute; top: 24px; right: 14px; display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; border-radius: 999px; background: var(--verde); color: #fff; font-size: 9.5px; font-weight: 700; }
+.selo-status .icone { width: 11px; height: 11px; }
+.selo-status--processo { background: #ffc107; color: #5c4300; }
+.cartao-animal__corpo { display: flex; flex-direction: column; align-items: center; flex: 1; padding: 12px 16px 24px; }
+.cartao-animal__nome { align-self: flex-start; margin: 2px 0 6px 2px; font-size: 16px; font-weight: 700; }
+.cartao-animal__meta { align-self: flex-start; display: flex; align-items: center; gap: 6px; margin: 0 0 8px 2px; font-size: 11.5px; color: var(--texto-suave); }
+.cartao-animal__meta .icone { width: 14px; height: 14px; color: #6b7873; }
+.cartao-animal__meta i { font-style: normal; font-weight: 700; margin: 0 2px; }
+.cartao-animal__saude { align-self: flex-start; display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0 0 20px 2px; font-size: 11.5px; color: var(--texto-suave); }
+.selo-saude { display: inline-flex; align-items: center; gap: 5px; }
+.selo-saude .icone { width: 14px; height: 14px; }
+.selo-saude.ok .icone { color: var(--verde); }
+.selo-saude.nao .icone { color: #e53935; }
+.cartao-animal__corpo .btn { margin-top: auto; min-width: 170px; padding: 7px 18px; font-size: 14px; border-width: 1.5px; }
+.cartao-animal--carregando .cartao-animal__foto, .cartao-animal--carregando i, .detalhe--carregando .detalhe__principal, .detalhe--carregando i { background: linear-gradient(90deg, #ecefe9 25%, #f6f8f4 50%, #ecefe9 75%); background-size: 200% 100%; animation: brilho 1.2s infinite linear; }
+.cartao-animal--carregando .cartao-animal__corpo { gap: 10px; padding-bottom: 36px; align-items: stretch; }
+.cartao-animal--carregando i, .detalhe--carregando i { display: block; height: 14px; border-radius: 6px; }
+.cartao-animal--carregando i:first-child { width: 50%; }
+@keyframes brilho { to { background-position: -200% 0; } }
+
+/* ---------- Home: Como adotar? ---------- */
+.como { padding: 44px 0 40px; background: #f9f9f8; text-align: center; }
+.como h2 { margin-bottom: 4px; font-size: 26px; font-weight: 800; }
+.como__sub { margin-bottom: 30px; font-size: 14px; }
+.como__passos { display: flex; justify-content: center; align-items: flex-start; gap: 18px; }
+.como__passo { flex: 0 1 230px; display: flex; flex-direction: column; align-items: center; }
+.como__icone { display: grid; place-items: center; width: 50px; height: 50px; margin-bottom: 8px; color: var(--verde-escuro); }
+.como__icone .icone { width: 44px; height: 44px; }
+.como__passo h3 { margin-bottom: 4px; font-size: 16px; font-weight: 700; }
+.como__passo p { max-width: 200px; margin: 0; font-size: 12px; line-height: 1.45; }
+.como__seta { display: grid; place-items: center; height: 50px; color: #1d6f2f; flex: none; }
+.como__seta .icone { width: 20px; height: 20px; }
+
+/* ---------- Página do animal ---------- */
+.voltar { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; font-weight: 700; font-size: 14px; text-decoration: none; }
+.voltar:hover { color: var(--verde); }
+.detalhe { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.detalhe__principal { aspect-ratio: 4 / 3; border-radius: 32px; overflow: hidden; background: var(--verde-claro); box-shadow: var(--sombra); }
+.detalhe__principal img { width: 100%; height: 100%; object-fit: cover; }
+.detalhe__miniaturas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+.detalhe__miniaturas button { width: 84px; height: 72px; padding: 0; border: 3px solid transparent; border-radius: 14px; overflow: hidden; background: none; }
+.detalhe__miniaturas button.ativa { border-color: var(--verde); }
+.detalhe__miniaturas img { width: 100%; height: 100%; object-fit: cover; }
+.detalhe__topo { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-bottom: 4px; }
+.detalhe__topo h1 { margin: 0; font-size: clamp(30px, 3.4vw, 42px); font-weight: 800; }
+.detalhe__meta { margin-bottom: 12px; color: var(--texto-suave); }
+.detalhe .cartao-animal__saude { margin: 0 0 20px; font-size: 14px; gap: 6px 20px; }
+.detalhe .selo-saude .icone { width: 18px; height: 18px; }
+.detalhe__descricao { margin-bottom: 20px; font-size: 16px; white-space: pre-line; }
+.detalhe__dados { display: grid; gap: 10px; margin: 0 0 28px; padding: 20px 24px; border-radius: 24px; background: var(--fundo); }
+.detalhe__dados:empty { display: none; }
+.detalhe__dados div { display: grid; grid-template-columns: 150px 1fr; gap: 12px; }
+.detalhe__dados dt { font-weight: 700; font-size: 14px; }
+.detalhe__dados dd { margin: 0; font-size: 14px; overflow-wrap: anywhere; white-space: pre-line; }
+.detalhe__acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+.detalhe__acoes .btn { padding: 12px 24px; font-size: 15px; border-radius: 999px; }
+.detalhe__aviso { display: flex; align-items: center; gap: 8px; margin: 0; padding: 12px 20px; border-radius: 999px; background: var(--verde-claro); font-weight: 600; }
+.detalhe--carregando i { margin-bottom: 14px; }
+.detalhe--carregando .detalhe__info i:first-child { width: 60%; height: 34px; }
+
+/* ---------- Como adotar ---------- */
+.adotar-hero { padding: 36px 24px 64px; background: var(--fundo); text-align: center; }
+.adotar-hero h1 { max-width: 840px; margin: 0 auto 8px; font-size: clamp(30px, 4.3vw, 56px); font-weight: 800; line-height: 1.6; }
+.adotar-hero h1 span { color: var(--verde); }
+.adotar-hero p { max-width: 530px; margin: 0 auto 40px; font-size: 18px; line-height: 1.5; text-align: left; }
+.adotar-fotos { display: flex; align-items: flex-start; gap: 24px; max-width: 1450px; margin: 64px auto 0; }
+.adotar-fotos img { min-width: 0; height: auto; border: 1px solid var(--verde-escuro); border-radius: 20px; object-fit: cover; }
+.adotar-fotos img:nth-child(1) { flex: 520 1 0; }
+.adotar-fotos img:nth-child(2) { flex: 402 1 0; }
+.adotar-fotos img:nth-child(3) { flex: 460 1 0; }
+.etapas { padding: 64px 0 120px; }
+.etapas h2 { margin-bottom: 64px; text-align: center; font-size: clamp(22px, 2.6vw, 33px); font-weight: 800; }
+.etapas__lista { display: grid; grid-template-columns: repeat(4, minmax(0, 210px)); justify-content: center; gap: 58px; }
+.etapa { min-height: 210px; padding: 8px 8px 16px; border: 1px solid #cfd2cd; background: #fff; box-shadow: 0 3px 6px rgba(0, 0, 0, .12); }
+.etapa__numero { display: block; font-size: 34px; font-weight: 800; line-height: 1.2; color: #b3b3b3; }
+.etapa h3 { margin: 2px 0 8px; font-size: 14px; font-weight: 700; }
+.etapa p { margin: 0; font-size: 12.5px; line-height: 1.5; }
+
+/* ---------- Responsivo ----------
+   Faixas: >1100 desktop · 768–1100 tablet · <=767 celular (grades de cartões sempre em 2 colunas) · <=359 celular pequeno. */
+@media (max-width: 1100px) {
+  .catalogo__grade { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
+  .filtros__portes { margin-left: 0; }
+  .etapas__lista { grid-template-columns: repeat(2, minmax(0, 260px)); gap: 28px; }
+}
+/* menu hambúrguer: até 1180px a navbar completa (logo + 4 links + 3 ações, ~1125px) não cabe em uma linha */
+@media (max-width: 1180px) {
+  .cabecalho__interno { flex-wrap: wrap; gap: 12px; padding: 16px 20px; }
+  .cabecalho__menu { display: block; }
+  .cabecalho__nav, .cabecalho__acoes { display: none; width: 100%; }
+  .cabecalho--aberto .cabecalho__nav { display: flex; flex-direction: column; align-items: stretch; gap: 4px; padding: 8px 0; margin: 0; }
+  .cabecalho--aberto .cabecalho__acoes { display: flex; padding-bottom: 8px; }
+  .cabecalho__nav a { padding: 10px 4px; }
+  .cabecalho--simples .cabecalho__nav a.ativo::after { display: none; }
+}
+/* colunas empilhadas (também vale para tablet em pé) */
+@media (max-width: 900px) {
+  .hero { flex-direction: column; align-items: flex-start; padding-top: 24px; gap: 8px; }
+  .hero__texto { padding: 0; max-width: none; }
+  .hero__imagem { width: 100%; margin: 0; }
+  .detalhe { grid-template-columns: 1fr; gap: 28px; }
+  .como__passos { flex-wrap: wrap; row-gap: 28px; }
+  .adotar-fotos { flex-direction: column; align-items: stretch; margin-top: 40px; }
+  .adotar-fotos img:nth-child(n) { flex: none; width: 100%; } /* mesma especificidade de :nth-child(1..3), vence por ordem */
+}
+@media (max-width: 767px) {
+  .cabecalho__acoes { flex-wrap: wrap; gap: 10px; }
+  .secao { padding-bottom: 56px; }
+
+  /* filtros */
+  .filtros { padding: 14px; gap: 12px; }
+  .filtros__linha { gap: 10px; }
+  .filtros__busca { max-width: none; flex-basis: 100%; }
+  .filtros__grupo, .filtros__portes { gap: 8px; width: 100%; }
+  .chip { height: 36px; padding: 0 14px; font-size: 13px; }
+  .chip--cinza { height: 34px; padding: 0 18px; }
+  .filtros__portes .chip { padding: 0 14px; }
+  .catalogo__cabecalho { margin: 28px 0 20px; }
+
+  /* grade de cartões: 2 colunas */
+  .catalogo__grade { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 12px; }
+  .cartao-animal { border-radius: 24px 24px 20px 20px; }
+  .cartao-animal__foto { aspect-ratio: 4 / 3; }
+  .selo-status { top: 8px; right: 8px; padding: 1px 7px; font-size: 9px; }
+  .cartao-animal__corpo { padding: 10px 10px 14px; }
+  .cartao-animal__nome { margin: 0 0 4px; font-size: 15px; overflow-wrap: anywhere; }
+  .cartao-animal__meta { flex-wrap: wrap; gap: 2px 5px; margin: 0 0 6px; font-size: 11px; }
+  .cartao-animal__meta i { display: none; }
+  .cartao-animal__saude { flex-direction: column; gap: 3px; margin: 0 0 12px; font-size: 11px; }
+  .cartao-animal__corpo .btn { width: 100%; min-width: 0; padding: 8px 6px; font-size: 12.5px; }
+
+  .detalhe__dados div { grid-template-columns: 1fr; gap: 2px; }
+  .detalhe__acoes .btn { flex: 1 1 100%; }
+  .detalhe__miniaturas button { width: 68px; height: 58px; }
+
+  /* Como adotar? (home) e etapas: 2 colunas */
+  .como { padding: 36px 0 32px; }
+  .como__passos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; }
+  .como__seta { display: none; }
+  .como__passo { flex: none; }
+  .como__passo p { max-width: none; padding-inline: 4px; }
+  .etapas { padding: 40px 0 64px; }
+  .etapas h2 { margin-bottom: 28px; }
+  .etapas__lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .etapa { min-height: 0; }
+  .adotar-hero { padding: 24px 16px 40px; }
+  .adotar-hero p { font-size: 16px; margin-bottom: 28px; text-align: center; }
+  .adotar-fotos { gap: 14px; }
+}
+@media (max-width: 359px) {
+  .catalogo__grade { gap: 12px 8px; }
+  .cartao-animal__corpo { padding: 8px 8px 12px; }
+  .cartao-animal__nome { font-size: 14px; }
+  .cartao-animal__meta, .cartao-animal__saude { font-size: 10.5px; }
+  .cartao-animal__corpo .btn { font-size: 12px; }
+  .chip { padding: 0 12px; font-size: 12.5px; }
+  .etapa__numero { font-size: 28px; }
+  .etapa p { font-size: 11.5px; }
+}

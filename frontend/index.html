@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AmparaPet — Encontre seu novo melhor amigo</title>
+  <meta name="description" content="Adote um animal e transforme duas vidas: a dele e a sua. Conheça os cães e gatos do Abrigo Toca de Assis.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/site.css">
+  <script src="js/aviso-servidor-local.js"></script>
+</head>
+<body class="site">
+  <a class="pular-para-conteudo" href="#conteudo">Ir para o conteúdo</a>
+  <header id="cabecalho"></header>
+  <main id="conteudo" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero__texto">
+        <h1 id="hero-titulo">Encontre seu novo melhor amigo <span class="hero__coracao" aria-hidden="true"></span></h1>
+        <p>Adote um animal e transforme duas vidas: a dele e a sua.</p>
+        <a class="btn btn--verde btn--p" href="#animais" id="hero-cta"></a>
+      </div>
+      <img class="hero__imagem" src="assets/img/hero-animais.jpg" alt="Cães e gatos esperando um lar">
+    </section>
+
+    <section class="secao secao--catalogo" id="animais" aria-label="Animais disponíveis">
+      <div class="container" id="catalogo"></div>
+    </section>
+
+    <section class="como" aria-labelledby="como-titulo">
+      <div class="container">
+        <h2 id="como-titulo">Como Adotar?</h2>
+        <p class="como__sub">É simples! veja como funciona o processo de adoção:</p>
+        <ol class="como__passos" id="como-passos"></ol>
+      </div>
+    </section>
+  </main>
+  <footer id="rodape"></footer>
+  <script type="module" src="js/pages/index.js"></script>
+</body>
+</html>

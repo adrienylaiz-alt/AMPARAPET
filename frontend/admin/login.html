@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Área administrativa — AmparaPet</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <script src="../js/aviso-servidor-local.js"></script>
+</head>
+<body class="login">
+  <div class="login__corpo">
+    <div class="login__foto" role="img" aria-label="Um filhote de gato sobre a cabeça de um pastor alemão"></div>
+    <main class="login__painel" id="conteudo">
+      <div class="login__caixa">
+        <a class="login__logo" href="../index.html" aria-label="AmparaPet — voltar ao site"></a>
+        <h1>Área administrativa</h1>
+        <p class="login__sub">Faça login para acessar o painel de gestão do abrigo.</p>
+
+        <form id="form-login" novalidate>
+          <div class="campo campo--icone" id="campo-email">
+            <label for="email">E-mail</label>
+            <div class="campo__entrada"><span class="campo__icone" id="ic-email"></span>
+              <input type="email" id="email" name="email" placeholder="Digite seu e-mail" autocomplete="username" required></div>
+          </div>
+          <div class="campo campo--icone" id="campo-senha">
+            <label for="senha">Senha</label>
+            <div class="campo__entrada"><span class="campo__icone" id="ic-senha"></span>
+              <input type="password" id="senha" name="senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+              <button type="button" class="campo__olho" id="btn-olho" aria-label="Mostrar senha" aria-pressed="false"></button></div>
+          </div>
+          <label class="login__lembrar"><input type="checkbox" id="lembrar"><span>Lembrar de mim</span></label>
+          <p class="login__erro" id="erro-login" role="alert" hidden></p>
+          <button type="submit" class="login__entrar" id="btn-entrar">Entrar</button>
+          <button type="button" class="login__esqueceu" id="btn-esqueceu" aria-expanded="false" aria-controls="dica-senha">Esqueceu sua senha?</button>
+          <p class="login__dica" id="dica-senha" hidden>A recuperação por e-mail não está disponível. Peça a outro administrador para redefinir a sua senha em Configurações, ou entre em contato com quem mantém o sistema.</p>
+        </form>
+      </div>
+    </main>
+  </div>
+  <footer id="rodape"></footer>
+  <script type="module" src="../js/pages/admin-login.js"></script>
+</body>
+</html>
