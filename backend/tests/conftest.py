@@ -18,6 +18,7 @@ os.environ["DATABASE_URL"] = os.environ.get(
 os.environ["UPLOAD_DIR"] = tempfile.mkdtemp(prefix="amparapet_fotos_")
 os.environ["ADMIN_INICIAL_EMAIL"] = "admin@teste.com"
 os.environ["ADMIN_INICIAL_SENHA"] = "senha-do-admin"
+os.environ["CARREGAR_EXEMPLOS"] = "0"
 sys.path.insert(0, str(RAIZ / "backend"))
 
 from fastapi.testclient import TestClient  # noqa: E402

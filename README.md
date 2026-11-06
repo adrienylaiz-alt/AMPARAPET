@@ -39,11 +39,7 @@ Não precisa instalar nada. O Python e o MySQL ficam dentro da pasta do projeto 
 
 Se clonou do GitHub, a primeira execução baixa o Python e o MySQL (precisa de internet). Essas pastas não vão pro repositório porque são pesadas.
 
-Pra colocar alguns animais de exemplo no banco:
-
-```bash
-cd backend && ..\python\python -m app.init_db --exemplos
-```
+Na primeira vez que o sistema liga, o banco já vem com 8 animais de exemplo (com fotos), que ficam em `backend/app/exemplos/`. Pra começar sem eles, coloque `CARREGAR_EXEMPLOS=0` no `.env` antes de ligar.
 
 ### Arquivos .bat
 
@@ -78,7 +74,7 @@ As tabelas são criadas pela própria API quando ela sobe.
 | `tentativas_login` | Usado pra bloquear depois de 5 erros |
 | `configuracoes` | Endereço, horários, WhatsApp e textos do abrigo |
 
-Pra zerar tudo: `parar.bat`, apagar `mysql\data\` e `uploads\` e rodar `iniciar.bat` de novo.
+Pra zerar tudo: `parar.bat`, apagar `mysql\data\` e `uploads\` e rodar `iniciar.bat` de novo. O banco volta com o admin e os animais de exemplo.
 
 ## API
 

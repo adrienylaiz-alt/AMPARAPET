@@ -41,5 +41,8 @@ ADMIN_INICIAL_NOME = os.getenv("ADMIN_INICIAL_NOME", "Administrador")
 ADMIN_INICIAL_EMAIL = os.getenv("ADMIN_INICIAL_EMAIL", "admin@amparapet.local")
 ADMIN_INICIAL_SENHA = os.getenv("ADMIN_INICIAL_SENHA", "trocar123")
 
+# Num banco novo, cadastra os animais de exemplo de app/exemplos/ (0 para começar vazio)
+CARREGAR_EXEMPLOS = os.getenv("CARREGAR_EXEMPLOS", "1") == "1"
+
 # Endereço do site (front-end), usado nos links de compartilhamento
 SITE_URL = os.getenv("SITE_URL", "http://localhost:5500").rstrip("/")

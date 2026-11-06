@@ -1,0 +1,163 @@
+[
+  {
+    "nome": "Thor",
+    "especie": "CAO",
+    "raca": "SRD",
+    "sexo": "MACHO",
+    "porte": "GRANDE",
+    "data_nascimento": "2022-03-01",
+    "cor": "Caramelo claro",
+    "comportamento": "Brincalhão e muito carinhoso. Se dá bem com outros cães.",
+    "vacinado": true,
+    "vacinas_detalhes": "V10 e antirrábica",
+    "castrado": true,
+    "necessidades_especiais": null,
+    "descricao": "Thor foi resgatado(a) e está pronto(a) para um novo lar.",
+    "status": "DISPONIVEL",
+    "cliques_interesse": 0,
+    "fotos": [
+      "thor-1.webp"
+    ]
+  },
+  {
+    "nome": "Mel",
+    "especie": "CAO",
+    "raca": "SRD",
+    "sexo": "FEMEA",
+    "porte": "MEDIO",
+    "data_nascimento": "2023-08-01",
+    "cor": "Preta e branca",
+    "comportamento": "Calma, gosta de colo. Um pouco tímida no começo.",
+    "vacinado": true,
+    "vacinas_detalhes": "V10 e antirrábica",
+    "castrado": true,
+    "necessidades_especiais": null,
+    "descricao": "Mel foi resgatado(a) e está pronto(a) para um novo lar.",
+    "status": "DISPONIVEL",
+    "cliques_interesse": 0,
+    "fotos": [
+      "mel-1.webp"
+    ]
+  },
+  {
+    "nome": "Pipoca",
+    "especie": "CAO",
+    "raca": "Poodle",
+    "sexo": "FEMEA",
+    "porte": "PEQUENO",
+    "data_nascimento": "2019-01-01",
+    "cor": "Branca",
+    "comportamento": "Tranquila, ideal para apartamento.",
+    "vacinado": true,
+    "vacinas_detalhes": "V10 e antirrábica",
+    "castrado": false,
+    "necessidades_especiais": null,
+    "descricao": "Pipoca foi resgatado(a) e está pronto(a) para um novo lar.",
+    "status": "EM_PROCESSO",
+    "cliques_interesse": 0,
+    "fotos": [
+      "pipoca-1.webp"
+    ]
+  },
+  {
+    "nome": "Frajola",
+    "especie": "GATO",
+    "raca": "SRD",
+    "sexo": "MACHO",
+    "porte": "PEQUENO",
+    "data_nascimento": "2024-05-01",
+    "cor": "Preto e branco",
+    "comportamento": "Curioso e brincalhão.",
+    "vacinado": false,
+    "vacinas_detalhes": null,
+    "castrado": false,
+    "necessidades_especiais": null,
+    "descricao": "Frajola foi resgatado(a) e está pronto(a) para um novo lar.",
+    "status": "DISPONIVEL",
+    "cliques_interesse": 0,
+    "fotos": [
+      "frajola-1.webp"
+    ]
+  },
+  {
+    "nome": "Luna",
+    "especie": "GATO",
+    "raca": "Siamês",
+    "sexo": "FEMEA",
+    "porte": "PEQUENO",
+    "data_nascimento": "2021-10-01",
+    "cor": "Creme",
+    "comportamento": "Independente, mas adora carinho no fim do dia.",
+    "vacinado": true,
+    "vacinas_detalhes": null,
+    "castrado": true,
+    "necessidades_especiais": null,
+    "descricao": "Luna foi resgatado(a) e está pronto(a) para um novo lar.",
+    "status": "DISPONIVEL",
+    "cliques_interesse": 0,
+    "fotos": [
+      "luna-1.webp"
+    ]
+  },
+  {
+    "nome": "Bob",
+    "especie": "CAO",
+    "raca": "Vira-lata",
+    "sexo": "MACHO",
+    "porte": "MEDIO",
+    "data_nascimento": "2020-06-01",
+    "cor": "Marrom",
+    "comportamento": "Já encontrou um lar!",
+    "vacinado": true,
+    "vacinas_detalhes": "V10 e antirrábica",
+    "castrado": true,
+    "necessidades_especiais": null,
+    "descricao": "Bob foi resgatado(a) e está pronto(a) para um novo lar.",
+    "status": "ADOTADO",
+    "cliques_interesse": 0,
+    "fotos": [
+      "bob-1.webp"
+    ]
+  },
+  {
+    "nome": "Lupe",
+    "especie": "CAO",
+    "raca": "Viralata",
+    "sexo": "FEMEA",
+    "porte": "PEQUENO",
+    "data_nascimento": "2019-11-01",
+    "cor": "Preto",
+    "comportamento": "Raivosa",
+    "vacinado": true,
+    "vacinas_detalhes": null,
+    "castrado": true,
+    "necessidades_especiais": null,
+    "descricao": "Viralata",
+    "status": "DISPONIVEL",
+    "cliques_interesse": 9,
+    "fotos": [
+      "lupe-1.webp",
+      "lupe-2.webp"
+    ]
+  },
+  {
+    "nome": "Bartolomeu",
+    "especie": "GATO",
+    "raca": "Cinza",
+    "sexo": "MACHO",
+    "porte": "PEQUENO",
+    "data_nascimento": "2025-11-01",
+    "cor": "Cinza",
+    "comportamento": "Dócil",
+    "vacinado": true,
+    "vacinas_detalhes": null,
+    "castrado": false,
+    "necessidades_especiais": null,
+    "descricao": "Pequeno",
+    "status": "DISPONIVEL",
+    "cliques_interesse": 0,
+    "fotos": [
+      "bartolomeu-1.webp"
+    ]
+  }
+]
