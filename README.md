@@ -150,3 +150,4 @@ DATABASE_URL=mysql+pymysql://usuario:senha@127.0.0.1:3306/amparapet?charset=utf8
 - **Windows bloqueia o AmparaPet.exe:** clique em "Mais informações" → "Executar assim mesmo" (acontece quando a pasta vem de um ZIP).
 - **Esqueci a senha do admin:** no `mysql.bat`, rode `DELETE FROM usuarios;` e reinicie a API. O admin do `.env` é recriado com a senha do [Acesso rápido](#acesso-rápido).
 - **Mudei o `models.py` e a tabela não mudou:** a API só cria tabelas que não existem. Faça um `ALTER TABLE` ou zere o banco.
+- 
