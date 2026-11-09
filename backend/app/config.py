@@ -45,4 +45,4 @@ ADMIN_INICIAL_SENHA = os.getenv("ADMIN_INICIAL_SENHA", "trocar123")
 CARREGAR_EXEMPLOS = os.getenv("CARREGAR_EXEMPLOS", "1") == "1"
 
 # Endereço do site (front-end), usado nos links de compartilhamento
-SITE_URL = os.getenv("SITE_URL", "http://localhost:5500").rstrip("/")
+SITE_URL = os.getenv("SITE_URL", "https://amparapet.vercel.app").rstrip("/")
