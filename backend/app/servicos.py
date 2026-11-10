@@ -67,11 +67,19 @@ def idade_texto(nascimento: date | None, hoje: date | None = None) -> str | None
     return " e ".join(partes)
 
 
+def _link_foto(base_url: str, caminho: str) -> str:
+    if caminho.startswith("http"):  # foto guardada no Cloudinary
+        return caminho
+    if base_url.startswith("http://") and "localhost" not in base_url and "127.0.0.1" not in base_url:
+        base_url = "https://" + base_url[len("http://") :]  # evita foto bloqueada no site https
+    return f"{base_url}uploads/{caminho}"
+
+
 def _foto_saida(foto: Foto, base_url: str) -> schemas.FotoSaida:
     return schemas.FotoSaida(
         id=foto.id,
-        url=f"{base_url}uploads/{foto.arquivo}",
-        miniatura_url=f"{base_url}uploads/{foto.miniatura}",
+        url=_link_foto(base_url, foto.arquivo),
+        miniatura_url=_link_foto(base_url, foto.miniatura),
         ordem=foto.ordem,
     )
 
